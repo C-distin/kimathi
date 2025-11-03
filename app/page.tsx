@@ -1,21 +1,20 @@
 "use client"
 
-import Link from "next/link"
-import Image from "next/image"
 import { motion } from "motion/react"
+import Link from "next/link"
+import type { IconType } from "react-icons"
 import {
+  FaArrowRight,
   FaAward,
   FaBalanceScale,
   FaChartLine,
+  FaClock,
+  FaDownload,
   FaGlobe,
   FaHandshake,
   FaShieldAlt,
-  FaClock,
-  FaDownload,
   FaStar,
-  FaArrowRight,
 } from "react-icons/fa"
-import type { IconType } from "react-icons"
 
 // Types
 interface Stat {

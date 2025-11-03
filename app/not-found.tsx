@@ -1,10 +1,10 @@
 "use client"
 
+import { motion } from "motion/react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { motion } from "motion/react"
 import { useEffect, useState } from "react"
-import { FaHome, FaArrowLeft, FaSearch, FaPhoneVolume, FaEnvelope } from "react-icons/fa"
+import { FaArrowLeft, FaEnvelope, FaHome, FaPhoneVolume, FaSearch } from "react-icons/fa"
 
 // Types
 interface QuickLink {
@@ -87,7 +87,7 @@ const QuickLinkCard = ({ link }: { link: QuickLink }) => {
   const Icon = link.icon
 
   return (
-    <motion.div variants={itemVariants} whileHover={{ scale: 1.05 }}>
+    <motion.div variants={{ itemVariants }} whileHover={{ scale: 1.05 }}>
       <Link
         href={link.href}
         className="group flex flex-col items-center gap-3 p-6 bg-white rounded-xl border-2 border-gray-200 hover:border-red-600 shadow-sm hover:shadow-lg transition-all duration-300"
@@ -123,7 +123,7 @@ const AnimatedNumber = () => {
       </motion.div>
 
       {/* 404 Text */}
-      <motion.div variants={floatVariants} animate="animate" className="relative">
+      <motion.div variants={{ floatVariants }} animate="animate" className="relative">
         <h1 className="text-[200px] md:text-[300px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-800 leading-none select-none">
           404
         </h1>
@@ -161,15 +161,15 @@ export default function NotFound() {
     <main className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50 flex items-center justify-center px-6 py-12">
       <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-6xl w-full">
         {/* Animated 404 Number */}
-        <motion.div variants={itemVariants} className="flex justify-center mb-8">
+        <motion.div variants={{ itemVariants }} className="flex justify-center mb-8">
           <AnimatedNumber />
         </motion.div>
 
         {/* Main Content */}
         <div className="text-center space-y-6 mb-12">
-          <motion.div variants={itemVariants}>
+          <motion.div variants={{ itemVariants }}>
             <motion.h2
-              variants={pulseVariants}
+              variants={{ pulseVariants }}
               animate="animate"
               className="text-3xl md:text-5xl font-bold text-gray-900 mb-4"
             >
@@ -184,10 +184,11 @@ export default function NotFound() {
           {/* Auto-redirect notice */}
           {isAutoRedirect && (
             <motion.div
-              variants={itemVariants}
+              variants={{ itemVariants }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 text-red-700 rounded-full text-sm"
             >
               <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <title>Loading...</title>
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path
                   className="opacity-75"
@@ -196,7 +197,11 @@ export default function NotFound() {
                 />
               </svg>
               Redirecting to home in {countdown} seconds
-              <button onClick={() => setIsAutoRedirect(false)} className="ml-2 underline hover:no-underline">
+              <button
+                type="button"
+                onClick={() => setIsAutoRedirect(false)}
+                className="ml-2 underline hover:no-underline"
+              >
                 Cancel
               </button>
             </motion.div>
@@ -204,7 +209,7 @@ export default function NotFound() {
         </div>
 
         {/* Action Buttons */}
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center mt-12 mb-16">
+        <motion.div variants={{ itemVariants }} className="flex flex-col sm:flex-row gap-4 justify-center mt-12 mb-16">
           <motion.button
             onClick={() => router.back()}
             whileHover={{ scale: 1.05 }}
@@ -227,7 +232,7 @@ export default function NotFound() {
         </motion.div>
 
         {/* Quick Links */}
-        <motion.div variants={itemVariants} className="mb-12">
+        <motion.div variants={{ itemVariants }} className="mb-12">
           <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Or try these popular pages</h3>
           <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {QUICK_LINKS.map(link => (
@@ -238,7 +243,7 @@ export default function NotFound() {
 
         {/* Help Section */}
         <motion.div
-          variants={itemVariants}
+          variants={{ itemVariants }}
           className="max-w-2xl mx-auto bg-gradient-to-r from-red-50 to-white rounded-2xl p-8 border border-red-100 shadow-sm"
         >
           <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
@@ -266,7 +271,7 @@ export default function NotFound() {
         </motion.div>
 
         {/* Footer Note */}
-        <motion.p variants={itemVariants} className="text-center text-sm text-gray-500 mt-12">
+        <motion.p variants={{ itemVariants }} className="text-center text-sm text-gray-500 mt-12">
           Error Code: 404 | Page Not Found
         </motion.p>
       </motion.div>

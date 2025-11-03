@@ -1,11 +1,11 @@
 "use client"
 
-import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { contactSchema, type ContactData } from "@/lib/validation/contact"
-import { toast } from "sonner"
-import { useState } from "react"
 import { motion } from "motion/react"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
+import { type ContactData, contactSchema } from "@/lib/validation/contact"
 
 // Types
 interface ContactFormProps {
@@ -74,7 +74,7 @@ export function ContactForm({ onSuccess, className = "" }: ContactFormProps) {
         throw new Error(error.message || "Failed to send message")
       }
 
-      const result = await response.json()
+      const _result = await response.json()
 
       // Success handling
       toast.success("Message sent successfully!", {
@@ -127,8 +127,9 @@ export function ContactForm({ onSuccess, className = "" }: ContactFormProps) {
           type="text"
           placeholder="John Doe"
           disabled={isSubmitting}
-          className={`w-full px-4 py-3 border rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:bg-gray-100 disabled:cursor-not-allowed ${errors.name ? "border-red-500 focus:ring-red-500" : "border-gray-300"
-            }`}
+          className={`w-full px-4 py-3 border rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:bg-gray-100 disabled:cursor-not-allowed ${
+            errors.name ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+          }`}
           aria-invalid={errors.name ? "true" : "false"}
           aria-describedby={errors.name ? "name-error" : undefined}
         />
@@ -150,8 +151,9 @@ export function ContactForm({ onSuccess, className = "" }: ContactFormProps) {
           type="email"
           placeholder="john@example.com"
           disabled={isSubmitting}
-          className={`w-full px-4 py-3 border rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:bg-gray-100 disabled:cursor-not-allowed ${errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300"
-            }`}
+          className={`w-full px-4 py-3 border rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:bg-gray-100 disabled:cursor-not-allowed ${
+            errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+          }`}
           aria-invalid={errors.email ? "true" : "false"}
           aria-describedby={errors.email ? "email-error" : undefined}
         />
@@ -173,8 +175,9 @@ export function ContactForm({ onSuccess, className = "" }: ContactFormProps) {
           type="tel"
           placeholder="0244847464"
           disabled={isSubmitting}
-          className={`w-full px-4 py-3 border rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:bg-gray-100 disabled:cursor-not-allowed ${errors.phone ? "border-red-500 focus:ring-red-500" : "border-gray-300"
-            }`}
+          className={`w-full px-4 py-3 border rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:bg-gray-100 disabled:cursor-not-allowed ${
+            errors.phone ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+          }`}
           aria-invalid={errors.phone ? "true" : "false"}
           aria-describedby={errors.phone ? "phone-error" : undefined}
         />
@@ -196,8 +199,9 @@ export function ContactForm({ onSuccess, className = "" }: ContactFormProps) {
           type="text"
           placeholder="How can we help you?"
           disabled={isSubmitting}
-          className={`w-full px-4 py-3 border rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:bg-gray-100 disabled:cursor-not-allowed ${errors.subject ? "border-red-500 focus:ring-red-500" : "border-gray-300"
-            }`}
+          className={`w-full px-4 py-3 border rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:bg-gray-100 disabled:cursor-not-allowed ${
+            errors.subject ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+          }`}
           aria-invalid={errors.subject ? "true" : "false"}
           aria-describedby={errors.subject ? "subject-error" : undefined}
         />
@@ -219,8 +223,9 @@ export function ContactForm({ onSuccess, className = "" }: ContactFormProps) {
           rows={6}
           placeholder="Tell us more about your inquiry..."
           disabled={isSubmitting}
-          className={`w-full px-4 py-3 border rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:bg-gray-100 disabled:cursor-not-allowed resize-none ${errors.message ? "border-red-500 focus:ring-red-500" : "border-gray-300"
-            }`}
+          className={`w-full px-4 py-3 border rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 disabled:bg-gray-100 disabled:cursor-not-allowed resize-none ${
+            errors.message ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+          }`}
           aria-invalid={errors.message ? "true" : "false"}
           aria-describedby={errors.message ? "message-error" : undefined}
         />
@@ -236,8 +241,9 @@ export function ContactForm({ onSuccess, className = "" }: ContactFormProps) {
         <button
           type="submit"
           disabled={isSubmitting || isSuccess}
-          className={`w-full py-3 px-6 rounded-lg font-semibold text-white transition-all duration-300 ${isSuccess ? "bg-green-600 hover:bg-green-700" : "bg-red-700 hover:bg-red-800"
-            } disabled:bg-gray-400 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2`}
+          className={`w-full py-3 px-6 rounded-lg font-semibold text-white transition-all duration-300 ${
+            isSuccess ? "bg-green-600 hover:bg-green-700" : "bg-red-700 hover:bg-red-800"
+          } disabled:bg-gray-400 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2`}
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-2">

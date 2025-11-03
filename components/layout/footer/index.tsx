@@ -1,19 +1,19 @@
 "use client"
 
-import Link from "next/link"
-import Image from "next/image"
-import {
-  FaWhatsapp,
-  FaFacebook,
-  FaXTwitter,
-  FaLinkedin,
-  FaInstagram,
-  FaEnvelope,
-  FaPhoneVolume,
-  FaLocationDot,
-} from "react-icons/fa6"
 import { motion } from "motion/react"
+import Image from "next/image"
+import Link from "next/link"
 import type { IconType } from "react-icons"
+import {
+  FaEnvelope,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaLocationDot,
+  FaPhoneVolume,
+  FaWhatsapp,
+  FaXTwitter,
+} from "react-icons/fa6"
 
 // Types
 interface SocialLink {

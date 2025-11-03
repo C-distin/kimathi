@@ -1,9 +1,9 @@
 "use client"
 
-import { ContactForm } from "./form"
-import { FaMapLocationDot, FaWhatsapp, FaPhoneVolume, FaEnvelope } from "react-icons/fa6"
 import { motion } from "motion/react"
 import type { IconType } from "react-icons"
+import { FaEnvelope, FaMapLocationDot, FaPhoneVolume, FaWhatsapp } from "react-icons/fa6"
+import { ContactForm } from "./form"
 
 // Types
 interface ContactInfo {
