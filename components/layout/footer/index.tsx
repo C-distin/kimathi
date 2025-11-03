@@ -178,7 +178,7 @@ export function Footer() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        variants={footerVariants}
+        variants={{ footerVariants }}
       >
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -196,13 +196,13 @@ export function Footer() {
             <p className="text-sm text-gray-400 leading-relaxed">
               Leading law firm providing comprehensive legal services with excellence, integrity, and innovation.
             </p>
-            <div className="flex gap-4" role="list" aria-label="Social media links">
+            <ol className="flex gap-4" aria-label="Social media links">
               {SOCIAL_LINKS.map(link => (
-                <div key={link.href} role="listitem">
+                <li key={link.href}>
                   <SocialLinkButton link={link} />
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
 
           {/* Quick Links */}

@@ -180,7 +180,7 @@ const StatCard = ({ stat }: { stat: Stat }) => {
 
   return (
     <motion.div
-      variants={itemVariants}
+      variants={{ itemVariants }}
       whileHover={{ y: -5 }}
       className="flex flex-col items-center gap-3 p-6 bg-white rounded-xl shadow-sm border border-gray-100"
     >
@@ -199,7 +199,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
   const Icon = service.icon
 
   return (
-    <motion.div variants={itemVariants} whileHover={{ scale: 1.03 }} className="group">
+    <motion.div variants={{ itemVariants }} whileHover={{ scale: 1.03 }} className="group">
       <Link
         href={service.href}
         className="block h-full p-6 bg-white rounded-xl border-2 border-gray-200 hover:border-red-600 hover:shadow-xl transition-all duration-300"
@@ -228,7 +228,7 @@ const PublicationCard = ({ publication }: { publication: Publication }) => {
       href={publication.downloadUrl}
       target="_blank"
       rel="noopener noreferrer"
-      variants={itemVariants}
+      variants={{ itemVariants }}
       whileHover={{ scale: 1.05 }}
       className="group flex items-start gap-4 p-5 bg-gradient-to-br from-red-50 to-white rounded-xl border border-red-100 hover:shadow-lg transition-all duration-300"
     >
@@ -346,6 +346,7 @@ export default function Home() {
         {/* Wave Separator */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <title>Wave Separator</title>
             <path
               d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
               fill="white"
@@ -372,7 +373,7 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <section className="container mx-auto px-6 md:px-8 py-20">
         <motion.div
-          variants={fadeInVariants}
+          variants={{ fadeInVariants }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -392,7 +393,7 @@ export default function Home() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid md:grid-cols-3 gap-8 mb-12"
         >
-          <motion.div variants={itemVariants} className="text-center p-6">
+          <motion.div variants={{ itemVariants }} className="text-center p-6">
             <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
               <FaClock className="w-8 h-8 text-red-600" />
             </div>
@@ -402,7 +403,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="text-center p-6">
+          <motion.div variants={{ itemVariants }} className="text-center p-6">
             <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
               <FaShieldAlt className="w-8 h-8 text-red-600" />
             </div>
@@ -412,7 +413,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="text-center p-6">
+          <motion.div variants={{ itemVariants }} className="text-center p-6">
             <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
               <FaGlobe className="w-8 h-8 text-red-600" />
             </div>
@@ -424,7 +425,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          variants={fadeInVariants}
+          variants={{ fadeInVariants }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -444,7 +445,7 @@ export default function Home() {
       <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-6 md:px-8">
           <motion.div
-            variants={fadeInVariants}
+            variants={{ fadeInVariants }}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -470,7 +471,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            variants={itemVariants}
+            variants={{ itemVariants }}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -490,7 +491,7 @@ export default function Home() {
       {/* Publications Section */}
       <section className="container mx-auto px-6 md:px-8 py-20">
         <motion.div
-          variants={fadeInVariants}
+          variants={{ fadeInVariants }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -515,7 +516,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div
-          variants={itemVariants}
+          variants={{ itemVariants }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -535,7 +536,7 @@ export default function Home() {
       <section className="bg-gradient-to-br from-gray-900 via-red-900 to-gray-900 text-white py-20">
         <div className="container mx-auto px-6 md:px-8">
           <motion.div
-            variants={fadeInVariants}
+            variants={{ fadeInVariants }}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -558,7 +559,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="container mx-auto px-6 md:px-8 py-20">
         <motion.div
-          variants={fadeInVariants}
+          variants={{ fadeInVariants }}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

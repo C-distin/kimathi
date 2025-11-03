@@ -102,32 +102,33 @@ const ContactInfoCard = ({ info }: { info: ContactInfo }) => {
       whileTap={{ scale: 0.98 }}
     >
       {/* Icon Container */}
-      <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-red-50 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
+      <div className="shrink-0 w-12 h-12 rounded-lg bg-red-50 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
         <Icon className="w-6 h-6 text-red-600 group-hover:text-white transition-colors duration-300" />
       </div>
 
       {/* Content */}
       <div className="flex-1 min-w-0">
         <h3 className="text-sm font-medium text-gray-500 mb-1">{info.label}</h3>
-        <p className="text-base font-semibold text-gray-900 break-words">{info.value}</p>
+        <p className="text-base font-semibold text-gray-900 wrap-break-word">{info.value}</p>
         <p className="text-xs text-gray-500 mt-1 group-hover:text-red-600 transition-colors duration-300">
           {info.description} →
         </p>
       </div>
 
       {/* Hover Effect */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-red-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+      <div className="absolute inset-0 rounded-xl bg-linear-to-br from-red-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
     </motion.a>
   )
 }
 
 const OfficeHoursCard = () => (
   <motion.div
-    variants={cardVariants}
-    className="bg-gradient-to-br from-red-50 to-white p-6 rounded-xl border border-red-100 shadow-sm"
+    variants={{ cardVariants }}
+    className="bg-linear-to-br from-red-50 to-white p-6 rounded-xl border border-red-100 shadow-sm"
   >
     <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
       <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <title>Office Hours</title>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -150,7 +151,7 @@ const OfficeHoursCard = () => (
 
 const MapEmbed = () => (
   <motion.div
-    variants={cardVariants}
+    variants={{ cardVariants }}
     className="relative w-full h-64 rounded-xl overflow-hidden shadow-lg border border-gray-200"
   >
     <iframe
@@ -169,7 +170,7 @@ const MapEmbed = () => (
 
 export function ContactPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <main className="min-h-screen bg-linear-to-b from-gray-50 to-white">
       {/* Hero Section */}
       <section className="container mx-auto px-6 md:px-8 py-12 md:py-20">
         <motion.div
@@ -202,7 +203,7 @@ export function ContactPage() {
           <div className="grid lg:grid-cols-5 gap-8">
             {/* Contact Form - Takes up 3 columns */}
             <motion.div
-              variants={itemVariants}
+              variants={{ itemVariants }}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -226,7 +227,7 @@ export function ContactPage() {
               className="lg:col-span-2 space-y-6"
             >
               {/* Contact Information */}
-              <motion.div variants={itemVariants}>
+              <motion.div variants={{ itemVariants }}>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
                 <p className="text-gray-600 mb-6">Reach out to us through any of these channels.</p>
                 <div className="space-y-3">
@@ -247,7 +248,7 @@ export function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-red-900 to-red-700 py-16">
+      <section className="bg-linear-to-r from-red-900 to-red-700 py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

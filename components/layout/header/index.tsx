@@ -100,7 +100,7 @@ const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
 
         {/* Mobile Menu */}
         <motion.nav
-          variants={menuVariants}
+          variants={{ menuVariants }}
           initial="closed"
           animate="open"
           exit="closed"
@@ -128,9 +128,9 @@ const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             </div>
 
             {/* Navigation Links */}
-            <motion.div className="flex flex-col gap-1 p-6">
+            <div className="flex flex-col gap-1 p-6">
               {NAV_ITEMS.map(item => (
-                <motion.div key={item.name} variants={menuItemVariants}>
+                <motion.div key={item.name} variants={{ menuItemVariants }}>
                   <NavLink
                     item={item}
                     onClick={onClose}
@@ -138,7 +138,7 @@ const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                   />
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </motion.nav>
       </>
@@ -193,9 +193,8 @@ export function Header() {
       <header className="sticky top-0 w-full z-50">
         <div className="container mx-auto px-6 md:px-8 py-4">
           <motion.div
-            className={`relative rounded-2xl transition-all duration-300 ${
-              isScrolled ? "bg-white/90 backdrop-blur-2xl shadow-lg" : "bg-transparent"
-            }`}
+            className={`relative rounded-2xl transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-2xl shadow-lg" : "bg-transparent"
+              }`}
             initial={false}
             animate={{
               backgroundColor: isScrolled ? "rgba(255, 255, 255, 0.9)" : "rgba(255, 255, 255, 0)",
